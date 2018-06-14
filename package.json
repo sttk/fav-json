@@ -1,0 +1,58 @@
+{
+  "name": "@fav/json",
+  "version": "0.0.0",
+  "description": "Creates a JSON converter which supports not only primitive types but also any object types.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/",
+    "web/"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha test test/lib",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "coveralls": "nyc --reporter=text-lcov npm test | coveralls",
+    "web:build": "npm run web:build-src && npm run web:build-test",
+    "web:build-src": "browserify index.js --standalone fav.json -o web/fav.json.js && cd web && uglifyjs fav.json.js --compress --mangle -o fav.json.min.js --source-map url=fav.json.min.js.map",
+    "web:build-test": "node tool/mktest.js",
+    "chrome:install": "npm i --no-save mocha-chrome",
+    "chrome:test": "mocha-chrome test/web/browser-test.html",
+    "build": "npm run lint && npm run coverage && npm run web:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sttk/fav.json.git"
+  },
+  "keywords": [
+    "json",
+    "typed",
+    "object",
+    "replacer",
+    "revivier",
+    "convert",
+    "type",
+    "fav"
+  ],
+  "author": "Takayuki Sato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sttk/fav.json/issues"
+  },
+  "homepage": "https://github.com/sttk/fav.json#readme",
+  "devDependencies": {
+    "browserify": "^16.1.0",
+    "coveralls": "^3.0.0",
+    "chai": "^3.5.0",
+    "eslint": "^4.8.0",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
+    "uglify-js": "^3.1.3"
+  },
+  "dependencies": {
+    "@fav/prop.enum-own-keys": "^1.0.2",
+    "@fav/type.is-function": "^1.0.2",
+    "@fav/type.is-plain-object": "^1.0.2",
+    "@fav/type.is-string": "^1.0.2"
+  }
+}
