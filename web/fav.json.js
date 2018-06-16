@@ -63,7 +63,7 @@ function creatorOf(constructor) {
 
 /* istanbul ignore next */
 function getFunctionName(constructor) {
-  var result = /^function ([^(]+)\(/.exec(constructor.toString());
+  var result = /^\s*function ([^(]+)\(/.exec(constructor.toString());
   if (result) {
     return result[1];
   }
