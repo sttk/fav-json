@@ -99,6 +99,11 @@ If a *reviver* is not specified, <code>new constructor(<i>value</i>)</code> is u
 
 `Date` is supported by default, and it is converted to a JSON string like: `'"|Date|' + date.getTime() + '"'`.
 
+***NOTE:***
+*This package uses <code><i>Type</i>.constructor.name</code> to get the type name, but on IE11 it is undefined.
+So in this `.supports` method, this package forcely sets the type name which is obtained from <code><i>Type</i>.toString()</code>.*
+
+
 **Parameters:**
 
 | Parameter    |  Type    | Description                                       |
