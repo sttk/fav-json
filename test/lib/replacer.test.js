@@ -160,40 +160,42 @@ describe('lib/replacer', function() {
     var obj = { a: 1, b: 'B', c: true };
 
     var o0 = {
-      p0: undefined,
-      p1: null,
-      p2: true,
-      p3: 123,
-      p4: fn,
-      p5: abc,
-      p6: aaa,
-      p7: obj,
-      p8: 'XXX',
-      p9: '|YYY',
-      p10: [1, 2, 3],
+      p0: Object.create(null),
+      p1: undefined,
+      p2: null,
+      p3: true,
+      p4: 123,
+      p5: fn,
+      p6: abc,
+      p7: aaa,
+      p8: obj,
+      p9: 'XXX',
+      p10: '|YYY',
+      p11: [1, 2, 3],
     };
 
     var symbol = 'SYMBOL';
     if (typeof Symbol === 'function') {
       symbol = Symbol('a');
     }
-    o0.p11 = symbol;
+    o0.p12 = symbol;
 
     var o1 = replacer('', o0);
     var o2 = {
-      p0: undefined,
-      p1: null,
-      p2: true,
-      p3: 123,
-      p4: fn,
-      p5: '|Abc|{"a":1,"b":2,"c":3}',
-      p6: aaa,
-      p7: obj,
-      p8: 'XXX',
-      p9: '||YYY',
-      p10: [1, 2, 3],
+      p0: {},
+      p1: undefined,
+      p2: null,
+      p3: true,
+      p4: 123,
+      p5: fn,
+      p6: '|Abc|{"a":1,"b":2,"c":3}',
+      p7: aaa,
+      p8: obj,
+      p9: 'XXX',
+      p10: '||YYY',
+      p11: [1, 2, 3],
     };
-    o2.p11 = symbol;
+    o2.p12 = symbol;
     expect(o1).to.deep.equal(o2);
   });
 
