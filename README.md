@@ -194,7 +194,7 @@ See the file LICENSE in this distribution for more details.
 
 [repo-url]: https://github.com/sttk/fav-json/
 [npm-img]: https://img.shields.io/badge/npm-v0.1.0-blue.svg
-[npm-url]: https://www.npmjs.com/package/@fav/text.camel-case
+[npm-url]: https://www.npmjs.com/package/@fav/json
 [mit-img]: https://img.shields.io/badge/license-MIT-green.svg
 [mit-url]: https://opensource.org/licenses/MIT
 [travis-img]: https://travis-ci.org/sttk/fav-json.svg?branch=master
