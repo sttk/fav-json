@@ -25,9 +25,16 @@ function dateReviver(n) {
 
 
 Json.prototype.supports = function(constructor, replacer, reviver) {
-  if (isFunction(constructor)) {
-    replacer = replacer || toJsonOf(constructor) || JSON.stringify;
-    reviver = reviver || creatorOf(constructor);
+  if (!isFunction(constructor)) {
+    return;
+  }
+
+  replacer = replacer || toJsonOf(constructor) || JSON.stringify;
+  reviver = reviver || creatorOf(constructor);
+
+  /* istanbul ignore if */
+  if (!constructor.name) { // undefined on IE11
+    constructor.name = getFunctionName(constructor);
   }
 
   if (isFunction(replacer) && isFunction(reviver) && constructor.name) {
@@ -52,6 +59,14 @@ function creatorOf(constructor) {
   return function(a) {
     return new constructor(a);
   };
+}
+
+/* istanbul ignore next */
+function getFunctionName(constructor) {
+  var result = /^\s*function ([^(]+)\(/.exec(constructor.toString());
+  if (result) {
+    return result[1];
+  }
 }
 
 Json.prototype.stringify = function(anyData) {
