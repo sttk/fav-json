@@ -50,9 +50,9 @@ var jsonText = json.stringify({
 
 var jsonObj = json.parse(jsonText);
 // => { aaa: Aaa { a: 123 },
-  bbb: Bbb { b: 'BBB' },
-  ccc: Ccc { a: 987, b: 'CCC', c: true },
-  ddd: 2018-06-14T15:00:00.000Z }
+//      bbb: Bbb { b: 'BBB' },
+//      ccc: Ccc { a: 987, b: 'CCC', c: true },
+//      ddd: 2018-06-14T15:00:00.000Z }
   
 jsonObj.aaa instanceof Aaa  // => true
 jsonObj.bbb instanceof Bbb  // => true
@@ -83,10 +83,6 @@ jsonObj.ddd instanceof Date // => true
 
 ## API
 
-### <u>*constructor*() : Json</u>
-
-Creates a Json object. 
-
 ### <u>.supports(constructor [, replacer, reviver]) : Json</u>
 
 Accepts a *constructor*, *replacer* (optional) and *reviver* (optional) of a data type to be supported.
@@ -101,7 +97,7 @@ If a *reviver* is not specified, <code>new constructor(<i>value</i>)</code> is u
 
 ***NOTE:***
 *This package uses <code><i>Type</i>.constructor.name</code> to get the type name, but on IE11 it is undefined.
-So in this `.supports` method, this package forcely sets the type name which is obtained from <code><i>Type</i>.toString()</code>.*
+So in this `.supports` method, this package forcely sets the type name which is obtained from <code><i>Type</i>.toString()</code> to <code><i>Type</i>.constructor.name</code>.*
 
 
 **Parameters:**
