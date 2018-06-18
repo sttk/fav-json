@@ -1,6 +1,6 @@
 {
-    "name": "@fav/json",
-  "version": "0.1.0",
+  "name": "@fav/json",
+  "version": "0.1.1",
   "description": "Creates a JSON converter which supports not only primitive types but also any object types.",
   "main": "index.js",
   "files": [
