@@ -1,5 +1,5 @@
 {
-  "name": "@fav/json",
+    "name": "@fav/json",
   "version": "0.1.0",
   "description": "Creates a JSON converter which supports not only primitive types but also any object types.",
   "main": "index.js",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sttk/fav.json.git"
+    "url": "git+https://github.com/sttk/fav-json.git"
   },
   "keywords": [
     "json",
@@ -37,9 +37,9 @@
   "author": "Takayuki Sato",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sttk/fav.json/issues"
+    "url": "https://github.com/sttk/fav-json/issues"
   },
-  "homepage": "https://github.com/sttk/fav.json#readme",
+  "homepage": "https://github.com/sttk/fav-json#readme",
   "devDependencies": {
     "browserify": "^16.1.0",
     "coveralls": "^3.0.0",
